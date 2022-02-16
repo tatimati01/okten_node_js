@@ -1,0 +1,3 @@
+NAME: Julia
+AGE:19
+CITY: Kyiv
