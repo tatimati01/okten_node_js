@@ -1,3 +1,0 @@
-NAME: Kostia
-AGE:34
-CITY: Dnipro

@@ -1,3 +1,0 @@
-NAME: Marta
-AGE:27
-CITY: Rivne
