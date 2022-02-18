@@ -59,16 +59,16 @@ const fileCleanerAndDirRenamer = (dirForCheck) => {
                                         console.log(err);
                                         throw err;
                                     } else {
-                                         // fileCleanerAndDirRenamer(element)
+                                        // fileCleanerAndDirRenamer(`${element}_new`)
                                         console.log('rename done');
                                     }
                                 })
                         } else if (stats.isFile()) {
                             fs.truncate(path.join(__dirname, dirForCheck, element), (err) => {
                                 if (err) {
-                                     console.log(err);
-                                     throw err;
-                                  } else {
+                                    console.log(err);
+                                    throw err;
+                                } else {
                                     // fileCleanerAndDirRenamer(element)
                                     console.log('truncate done');
                                 }
@@ -76,6 +76,8 @@ const fileCleanerAndDirRenamer = (dirForCheck) => {
                         }
                     }
                 })
+
+                fileCleanerAndDirRenamer(element)
             }
         }
     })
