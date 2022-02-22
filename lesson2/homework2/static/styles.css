@@ -1,0 +1,45 @@
+.formWrapper {
+    background: lightgray;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.formBox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: larger;
+}
+
+.formBox input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.btnSubmit {
+    width: 120px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 20px;
+}
+
+.usersWrapper {
+    background: lightgray;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.userCard {
+    background: wheat;
+    border-radius: 10px;
+    padding: 10px;
+}

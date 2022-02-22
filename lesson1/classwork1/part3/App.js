@@ -41,46 +41,47 @@ const path = require('path');
 //     }
 // });
 
-const fileCleanerAndDirRenamer = (dirForCheck) => {
-    fs.readdir(path.join(__dirname, dirForCheck), (err, data) => {
-        if (err) {
-            console.log(err);
-        } else {
-            for (const element of data) {
-                fs.lstat(path.join(__dirname, dirForCheck, element), (err, stats) => {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        if (stats.isDirectory()) {
-                            fs.rename(path.join(__dirname, dirForCheck, element),
-                                path.join(__dirname, dirForCheck, `${element}_new`),
-                                (err) => {
-                                    if (err) {
-                                        console.log(err);
-                                        throw err;
-                                    } else {
-                                        // fileCleanerAndDirRenamer(`${element}_new`)
-                                        console.log('rename done');
-                                    }
-                                })
-                        } else if (stats.isFile()) {
-                            fs.truncate(path.join(__dirname, dirForCheck, element), (err) => {
-                                if (err) {
-                                    console.log(err);
-                                    throw err;
-                                } else {
-                                    // fileCleanerAndDirRenamer(element)
-                                    console.log('truncate done');
-                                }
-                            })
-                        }
-                    }
-                })
-
-                fileCleanerAndDirRenamer(element)
-            }
-        }
-    })
-}
-
-fileCleanerAndDirRenamer('mainDir')
+// const fileCleanerAndDirRenamer = (pathForCheck) => {
+//     fs.readdir(path.join(pathForCheck), (err, data) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             for (const element of data) {
+//                 fs.lstat(path.join(pathForCheck, element), (err, stats) => {
+//                     if (err) {
+//                         console.log(err);
+//                     } else {
+//                         if (stats.isDirectory()) {
+//                             fs.rename(path.join(pathForCheck, element),
+//                                 path.join(pathForCheck, `${element}_new`),
+//                                 (err) => {
+//                                     if (err) {
+//                                         console.log(err);
+//                                     } else {
+//                                         console.log('rename done');
+//                                         pathForCheck = path.join(pathForCheck, `${element}_new`)
+//                                         console.log(pathForCheck);
+//                                         fileCleanerAndDirRenamer(pathForCheck)
+//                                     }
+//                                 })
+//                         }
+//                         if (stats.isFile()) {
+//                             fs.truncate(path.join(pathForCheck, element), (err) => {
+//                                 if (err) {
+//                                     console.log(err);
+//                                 } else {
+//                                     pathForCheck = path.join(pathForCheck, element)
+//                                     fileCleanerAndDirRenamer(pathForCheck)
+//                                     console.log('truncate done');
+//                                 }
+//                             })
+//                         }
+//                     }
+//                 })
+//             }
+//         }
+//     })
+// }
+//
+// const pathForCheck = path.join(__dirname, 'mainDir')
+// fileCleanerAndDirRenamer(pathForCheck)
